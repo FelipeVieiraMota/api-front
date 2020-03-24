@@ -6,25 +6,19 @@ import { Service } from '../app/app.service'
   templateUrl: './app.component.html'
 })
 
-export class AppComponent 
-{
+export class AppComponent {
   public date:any = {};
   constructor(private service:Service)  { }
 
-  ngOnInit() 
-  {
+  ngOnInit() {
     this.getCurrentTime();
   }
   
-  private async getCurrentTime()
-  {
-    try
-    {
+  private async getCurrentTime(){
+    try{
       this.date = await this.service.getCurrentTime();
       console.log(this.date)
-    }
-    catch(e)
-    {
+    }catch(e){
       console.error("Error ",e);
     }
   }

@@ -5,16 +5,12 @@ import { HttpClient } from '@angular/common/http';
 export class Service {
     constructor(private _http : HttpClient) { }
 
-    public async getCurrentTime()
-    {
-        try
-        {
+    public async getCurrentTime(){
+        try{
             let result = await this._http.get('http://date.jsontest.com')  
             .toPromise().then(response => response).catch(error => error).finally();
             return result;
-        }
-        catch(e)
-        {
+        }catch(e){
             throw (e);
         }
     }
